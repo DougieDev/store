@@ -44,4 +44,9 @@ class Market
   def sorted_items_list
     total_inventory.keys.map(&:name).sort
   end
+
+  def date
+    date = Date.today
+    date.strftime("%d/%m/%Y")
+  end
 end
