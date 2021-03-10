@@ -14,4 +14,10 @@ class Vendor
   def stock(item, amount)
     @inventory[item] += amount
   end
+
+  def potential_revenue
+    @inventory.reduce(0) do |acc, (item, amount)|
+      acc += item.price * amount
+    end
+  end
 end
