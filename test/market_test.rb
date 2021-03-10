@@ -93,4 +93,19 @@ class MarketTest < Minitest::Test
 
     assert_equal result, @market.total_inventory
   end
+#== Any item sold by more than 1 vendor & quantity over 50 ==#
+  def test_overstocked_items
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+
+    @vendor1.stock(@item1, 35)
+    @vendor1.stock(@item2, 7)
+    @vendor2.stock(@item4, 50)
+    @vendor2.stock(@item3, 25)
+    @vendor3.stock(@item1, 65)
+    @vendor3.stock(@item3, 10)
+
+    assert_equal [@item1], @market.overstocked_items
+  end
 end
