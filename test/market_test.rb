@@ -4,6 +4,8 @@ require './lib/item'
 require './lib/market'
 require './lib/vendor'
 require 'pry'
+require 'date'
+require 'mocha/minitest'
 
 class MarketTest < Minitest::Test
   def setup
@@ -125,5 +127,10 @@ class MarketTest < Minitest::Test
     sorted_list = ["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"]
 
     assert_equal sorted_list, @market.sorted_items_list
+  end
+
+  def test_it_has_a_date
+    @market.stubs(:date).returns("24/02/2020")
+    assert_equal "24/02/2020", @market.date
   end
 end
