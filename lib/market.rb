@@ -37,7 +37,6 @@ class Market
     overstocked = total_inventory.select do |item, hash|
       hash[:quantity] > 50 && hash[:vendors].size > 1
     end
-    # require 'pry'; binding.pry
     overstocked.keys
   end
 
