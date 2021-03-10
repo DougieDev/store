@@ -40,4 +40,8 @@ class Market
     # require 'pry'; binding.pry
     overstocked.keys
   end
+
+  def sorted_items_list
+    total_inventory.keys.map(&:name).sort
+  end
 end
