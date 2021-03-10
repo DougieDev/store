@@ -26,4 +26,19 @@ class VendorTest < Minitest::Test
   def test_it_returns_zero_if_nothing_in_stock
     assert_equal 0, @vendor.check_stock(@item1)
   end
+
+  def test_it_can_stock_multiple_items
+    @vendor.stock(@item1, 30)
+    
+    assert_equal ({@item1 => 30}), @vendor.inventory
+    assert_equal 30, @vendor.check_stock(@item1)
+
+    @vendor.stock(@item1, 25)
+
+    assert_equal 55, @vendor.check_stock(@item1)
+
+    @vendor.stock(@item2, 12)
+
+    assert_equal ({@item1 => 55, @item2 => 12}), @vendor.inventory
+  end
 end
