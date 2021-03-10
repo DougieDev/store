@@ -4,8 +4,8 @@ require './lib/item'
 require './lib/market'
 require './lib/vendor'
 require 'pry'
-require 'date'
 require 'mocha/minitest'
+# require 'date'
 
 class MarketTest < Minitest::Test
   def setup
@@ -132,5 +132,8 @@ class MarketTest < Minitest::Test
   def test_it_has_a_date
     @market.stubs(:date).returns("24/02/2020")
     assert_equal "24/02/2020", @market.date
+  end
+
+  def test_it_can_sell_items
   end
 end
