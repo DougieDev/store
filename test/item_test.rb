@@ -20,6 +20,6 @@ class ItemTest < Minitest::Test
     assert_equal "Peach", @item1.name
     assert_equal "Tomato", @item2.name
     assert_equal 0.75, @item1.price
-    assert_equal 0.50, @item2.price
+    assert_equal 0.5, @item2.price
   end
 end
